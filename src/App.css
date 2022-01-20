@@ -13,5 +13,6 @@ body{
 .divv{ 
 
   height: 80vh;
+ box-shadow: 0 0 2px 1px rgba(187, 236, 225, 0.897); 
 
 }
