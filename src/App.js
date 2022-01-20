@@ -256,25 +256,10 @@ class App extends React.Component {
         <FiltroDiv>
           <FiltrosH2>Filtros</FiltrosH2>
           <Filter
-            id={1}
-            placeholder= "Valor minimo"
+
             valorDataApp={this.valorDataApp}
-            type={"number"}
             inputLabel={"Valor mínimo:"}
-            />
-          <Filter
-            id={2}
-            placeholder= "Valor maximo"
-            valorDataApp={this.valorDataApp}
-            type={"number"}
-            inputLabel={"Valor máximo:"}
-            />
-          <Filter
-            id={3}
-            placeholder= "Busca por nome"
-            valorDataApp={this.valorDataApp}
-            type={"text"}
-            inputLabel={"Busca por nome:"}
+
           />
         </FiltroDiv>
         <div>
