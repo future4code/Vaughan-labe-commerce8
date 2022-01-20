@@ -129,37 +129,51 @@ class App extends React.Component {
     const id = data.target.id;
     const valor = data.target.value;
 
-    this.setState({
-      valor: valor,
-    });
+    this.setState(
+    (state) =>({
+      valor: valor
+    }));
 
     console.log("id;", id, "valor:", valor);
 
     if (id === "1") {
-      this.setState({
-        valorMin: valor,
-      });
+      this.setState(
+        (state)=>  ({
+        valorMin: valor
+      }));
     }
     if (id === "2") {
-      this.setState({
-        valorMax: valor,
-      });
+      this.setState(
+        (state)=>  ({
+        valorMax: valor
+      }));
     }
     if (id === "3") {
-      return this.setState({
-        valorNome: valor,
-      });
+      return this.setState(
+       (state)=>  ({
+        valorNome: valor
+      }));
     }
 
     if (this.state.valor) {
-      this.setState({
-        produtosFiltrado: this.state.produtos
-          .filter((item) => item.valor >= this.state.valorMin)
-          .filter((item) => item.valor <= this.state.valorMax),
+      this.setState(
+       (state) => ({ produtosFiltrado: this.state.produtos
+          .filter((item) => item.valor >= this.state.valorMin && item.valor <= this.state.valorMax),
         naoFiltrando: false,
-      });
+      }));
 
       console.log(this.state.produtosFiltrado);
+      console.log(this.state.valor);
+      console.log(this.state.naoFiltrando);
+      console.log(this.state.valorMax);
+      
+    // }else{ 
+    //   this.setState(
+    //     (state) =>({
+    //      naoFiltrando: true,
+    //      valorMax: 6700090000
+    //    }));
+
     }
   };
 
@@ -214,20 +228,20 @@ class App extends React.Component {
     //   }
     // }
 
-    const arrayProduto = this.state.produtos.map((produto) => {
+    const arrayProduto = 
+    this.state.produtos
+    .filter(produto => {
+      return  this.state.valorMin === '' || produto.valor >= this.state.valorMin
+    })
+    .filter(produto => {
+      return  this.state.valorMax === '' || produto.valor <= this.state.valorMax
+    })
+    .filter(produto=>{
+      return produto.nome.toLowerCase().includes(this.state.valorNome.toLocaleLowerCase())
+    })
+    .map((produto) => {
       return (
-        <CardProduto>
-          <Imagem src={produto.imagem} alt='Imagem do produto' />
-          <Paragrafo>Nome: {produto.nome}</Paragrafo>
-          <Paragrafo>Valor: {produto.valor}</Paragrafo>
-          <Botao>Adicionar ao carrinho</Botao>
-        </CardProduto>
-      );
-    });
-
-    const arrayProdutoFiltrados = this.state.produtosFiltrado.map((produto) => {
-      return (
-        <CardProduto>
+        <CardProduto key={produto.id}>
           <Imagem src={produto.imagem} alt='Imagem do produto' />
           <Paragrafo>Nome: {produto.nome}</Paragrafo>
           <Paragrafo>Valor: {produto.valor}</Paragrafo>
@@ -243,18 +257,21 @@ class App extends React.Component {
           <FiltrosH2>Filtros</FiltrosH2>
           <Filter
             id={1}
+            placeholder= "Valor minimo"
             valorDataApp={this.valorDataApp}
             type={"number"}
             inputLabel={"Valor mínimo:"}
-          />
+            />
           <Filter
             id={2}
+            placeholder= "Valor maximo"
             valorDataApp={this.valorDataApp}
             type={"number"}
             inputLabel={"Valor máximo:"}
-          />
+            />
           <Filter
             id={3}
+            placeholder= "Busca por nome"
             valorDataApp={this.valorDataApp}
             type={"text"}
             inputLabel={"Busca por nome:"}
@@ -268,7 +285,7 @@ class App extends React.Component {
           </select>
         </div>
         <CardsContainer>
-          {this.state.naoFiltrando ? arrayProduto : arrayProdutoFiltrados}
+          {arrayProduto}
         </CardsContainer>
       </CaixaPrincipal>
     );
