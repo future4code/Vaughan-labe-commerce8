@@ -33,10 +33,23 @@ class Filter extends React.Component {
 
         return (
             <>
-                <InputLabel>{this.props.inputLabel}</InputLabel>
-                <Input   placeholder={this.props.placeholder} 
-                id={this.props.id}  
-                type={this.props.type} onChange={this.valorData} />
+                <InputLabel>"Valor mínimo:"</InputLabel>
+                
+                <Input   placeholder="Valor minimo" 
+                id={1}  
+                type={"number"} onChange={this.valorData} />
+
+                <InputLabel>"Valor máximo:"</InputLabel>
+
+                <Input   placeholder="Valor maximo"
+                id={2}  
+                type={"number"} onChange={this.valorData} />
+                
+                <InputLabel>"Busca por nome"</InputLabel>
+
+                <Input   placeholder="Busca por nome"
+                id={3}  
+                type={"text"} onChange={this.valorData} />
            </>
         )
     }
