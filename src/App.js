@@ -1,26 +1,42 @@
+import { render } from '@testing-library/react';
 import React from 'react';
-import logo from './logo.svg';
+import styled from 'styled-components';
+import Filter from './Components/Filter';
+
+// import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends React.Component {
+  state = {
+    valor: '',
+  }
+
+  valorDataApp = (data,id) => {
+    console.log(data,id)
+    this.setState({
+      valor:data,
+    })
+  }
+
+
+
+
+  render() {
+
+    // console.log(this.state.valor)
+
+    return (
+
+
+
+      <Filter valorDataApp={this.valorDataApp} />
+
+
+
+    );
+  }
 }
 
 export default App;
