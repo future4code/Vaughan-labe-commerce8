@@ -26,10 +26,7 @@ const FiltroDiv = styled.div`
   margin: 10px;
   padding: 10px;
   border: solid 1px black;
-`;
-
-const FiltrosH2 = styled.h2`
-  margin: 10px 10px;
+  background: rgba(223, 228, 237, .9)
 `;
 
 //? Cards
@@ -175,13 +172,10 @@ class App extends React.Component {
     return (
       <CaixaPrincipal>
         <GlobalStyle />
-        <FiltroDiv>
-          <FiltrosH2>Filtros</FiltrosH2>
+        <FiltroDiv>        
           <Filter
-
             valorDataApp={this.valorDataApp}
             inputLabel={"Valor mínimo:"}
-
           />
         </FiltroDiv>
         
