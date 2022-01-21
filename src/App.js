@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import Filter from "./Components/Filter";
 import listaProdutos from "./data/produtos.js";
-import Produto from "./Components/Produto";
-// import Carrinho from "./Components/Carrinho";
+import Carrinho from './Components/Carrinho'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -63,7 +62,9 @@ const Paragrafo = styled.p`
 const Botao = styled.button`
   margin-bottom: 10px;
   padding: 5px;
-`;
+`
+
+
 
 class App extends React.Component {
   state = {
@@ -78,25 +79,31 @@ class App extends React.Component {
     valorNome: "",
     valorArray: [],
     ordem: 'crescente',
-    carrinho: [],
-    quantidade: 0
+    // carrinho: [],
+    // quantidade: 0
   };
 
-  adicionar = (itemID) => {
-    const novoItem = this.state.produtos.filter((item) => {
-      return item.id === itemID
-    })
-     .map((item) => {
-      return (
-        item.nome  
-      )
-    })
+  adicionarItem = (itemId) => {
+    const itemNoCarrinho = this.state.itensNoCarrinho.find(item => itemId === item.id)
+     if (itemNoCarrinho) {
+       const novosItensCarrinho = this.state.itensNoCarrinho.map (item => {
+         if (itemId === item.id) {
+           return {
+            ...item,
+             quantidade: item.quantidade + 1
+           }
+         }
+         return item
+       })
+    this.setState({itensNoCarrinho : novosItensCarrinho})
+  } else {
+    const itemAdicionado = this.state.itensNoCarrinho.find(item => itemId === item.id)
 
-    const novoCarrinho = [...this.state.carrinho, novoItem]
-    this.setState({carrinho: novoCarrinho})
-    console.log(novoCarrinho)
+    const novosItensCarrinho = [...this.state.itensNoCarrinho, {...itemAdicionado, quantidade: 1}]
 
+    this.setState({itensNoCarrinho: novosItensCarrinho})
   }
+}
   
   
   
@@ -187,7 +194,7 @@ class App extends React.Component {
               <Imagem src={produto.imagem} alt='Imagem do produto' />
               <Paragrafo>Nome: {produto.nome}</Paragrafo>
               <Paragrafo>Valor: {produto.valor}</Paragrafo>
-              <Botao onClick={this.adicionar}>Adicionar ao carrinho</Botao>
+              <Botao onClick={() => this.props.adicionarItem(produto.id)}>Adicionar ao carrinho</Botao>
             </CardProduto>
           );
         });
@@ -214,10 +221,8 @@ class App extends React.Component {
           {arrayProduto}
         </CardsContainer>
         
-        <div>
-          
-          <Produto />
-        </div>
+        <Carrinho adicionarItem={this.adicionarItem}/>
+
       </CaixaPrincipal>
     );
   }
