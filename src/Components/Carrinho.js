@@ -20,7 +20,10 @@ class Carrinho extends React.Component {
                 <h3>Carrinho</h3>
                 <div>
                 {this.props.itensNoCarrinho.map((produto) => {
-                    return <ProdutosCarrinho item={produto}/>
+                    return <ProdutosCarrinho 
+                            item={produto}
+                            removerItem={this.props.removerItem}
+                            />
                 })}
                 </div>
                 <p>Valor total: {this.getTotalValue()}</p>
