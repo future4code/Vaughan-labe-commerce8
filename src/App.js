@@ -74,25 +74,13 @@ class App extends React.Component {
     naoFiltrando: true,
 
     valor: "",
-    valorMin: 0,
-    valorMax: 670008900,
+    valorMin: "",
+    valorMax: "",
     valorNome: "",
     valorArray: [],
     ordem: 'crescente',
-    itensNoCarrinho:[
-      {
-      id: 1,
-      nome: "Foguete Vostok",
-      valor: 2400000,
-      quantidade: 1,
-    },
-    {
-      id: 2,
-      nome: "Foguete N1",
-      valor: 150000,
-      quantidade: 1,
-    }
-  ]
+
+    itensNoCarrinho: []
   };
 
   adicionarItem = (itemId) => {
@@ -109,7 +97,7 @@ class App extends React.Component {
        })
     this.setState({itensNoCarrinho : novosItensCarrinho})
   } else {
-    const itemAdicionado = this.state.itensNoCarrinho.find(item => itemId === item.id)
+    const itemAdicionado = this.state.produtos.find(item => itemId === item.id)
 
     const novosItensCarrinho = [...this.state.itensNoCarrinho, {...itemAdicionado, quantidade: 1}]
 
@@ -206,7 +194,7 @@ class App extends React.Component {
               <Imagem src={produto.imagem} alt='Imagem do produto' />
               <Paragrafo>Nome: {produto.nome}</Paragrafo>
               <Paragrafo>Valor: {produto.valor}</Paragrafo>
-              <Botao onClick={() => this.props.adicionarItem(produto.id)}>Adicionar ao carrinho</Botao>
+              <Botao onClick={() => this.adicionarItem(produto.id)}>Adicionar ao carrinho</Botao>
             </CardProduto>
           );
         });
