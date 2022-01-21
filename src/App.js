@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import Filter from "./Components/Filter";
 import listaProdutos from "./data/produtos.js";
+import Produto from "./Components/Produto";
+// import Carrinho from "./Components/Carrinho";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -26,7 +28,7 @@ const FiltroDiv = styled.div`
   margin: 10px;
   padding: 10px;
   border: solid 1px black;
-  background: rgba(223, 228, 237, .9)
+  background: rgba(223, 228, 237, .9);
 `;
 
 //? Cards
@@ -76,7 +78,28 @@ class App extends React.Component {
     valorNome: "",
     valorArray: [],
     ordem: 'crescente',
+    carrinho: [],
+    quantidade: 0
   };
+
+  adicionar = (itemID) => {
+    const novoItem = this.state.produtos.filter((item) => {
+      return item.id === itemID
+    })
+     .map((item) => {
+      return (
+        item.nome  
+      )
+    })
+
+    const novoCarrinho = [...this.state.carrinho, novoItem]
+    this.setState({carrinho: novoCarrinho})
+    console.log(novoCarrinho)
+
+  }
+  
+  
+  
 
   valorDataApp = (data) => {
     const id = data.target.id;
@@ -87,7 +110,7 @@ class App extends React.Component {
         valor: valor
       }));
 
-    console.log("id;", id, "valor:", valor);
+    /* console.log("id;", id, "valor:" , valor); */
 
     if (id === "1") {
       this.setState(
@@ -164,7 +187,7 @@ class App extends React.Component {
               <Imagem src={produto.imagem} alt='Imagem do produto' />
               <Paragrafo>Nome: {produto.nome}</Paragrafo>
               <Paragrafo>Valor: {produto.valor}</Paragrafo>
-              <Botao>Adicionar ao carrinho</Botao>
+              <Botao onClick={this.adicionar}>Adicionar ao carrinho</Botao>
             </CardProduto>
           );
         });
@@ -190,6 +213,11 @@ class App extends React.Component {
         <CardsContainer>
           {arrayProduto}
         </CardsContainer>
+        
+        <div>
+          
+          <Produto />
+        </div>
       </CaixaPrincipal>
     );
   }
