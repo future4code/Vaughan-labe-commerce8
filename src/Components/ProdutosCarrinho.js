@@ -1,5 +1,5 @@
 import React from 'react';
-import listaProdutos from '../data/produtos';
+
 
 
 class ProdutosCarrinho extends React.Component {
@@ -10,8 +10,8 @@ class ProdutosCarrinho extends React.Component {
  render() {
     return (
       <div>
-        <p>1x</p>
-        <p>Produto</p>
+        <p>{this.props.item.quantidade}</p>
+        <p>{this.props.item.nome}</p>
         <button>Remover</button>
       </div>
   );

@@ -79,8 +79,20 @@ class App extends React.Component {
     valorNome: "",
     valorArray: [],
     ordem: 'crescente',
-    // carrinho: [],
-    // quantidade: 0
+    itensNoCarrinho:[
+      {
+      id: 1,
+      nome: "Foguete Vostok",
+      valor: 2400000,
+      quantidade: 1,
+    },
+    {
+      id: 2,
+      nome: "Foguete N1",
+      valor: 150000,
+      quantidade: 1,
+    }
+  ]
   };
 
   adicionarItem = (itemId) => {
@@ -221,7 +233,7 @@ class App extends React.Component {
           {arrayProduto}
         </CardsContainer>
         
-        <Carrinho adicionarItem={this.adicionarItem}/>
+        <Carrinho itensNoCarrinho={this.state.itensNoCarrinho}/>
 
       </CaixaPrincipal>
     );
