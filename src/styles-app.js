@@ -10,9 +10,6 @@ export const CaixaPrincipal = styled.div`
 export const EstilizacaoHeader = styled.div`
     grid-column-start: 1;
     grid-column-end: 5;
-    justify-content: center;
-    align-items: center;
-    /* width: 100vw; */
     text-align: center;
     color: #303030;
     background-color: #ad3743;
@@ -55,6 +52,7 @@ export const CardProduto = styled.div`
   align-items: center;
   border: 2px solid black;
   margin: 10px;
+  /* background-color: #ad3743;  */
 `;
 
 export const Imagem = styled.img`
@@ -65,16 +63,21 @@ export const Imagem = styled.img`
 
 export const Paragrafo = styled.p`
   margin-bottom: 10px;
+  ;
 `;
 
 export const Botao = styled.button`
   margin-bottom: 10px;
   padding: 5px;
+  background-color: #326462;
+  border: 2px solid black;
+  cursor: pointer;
+  :hover {
+      background-color: #50a3a0;
+    }
 `
 // Estilização Carrinho
-
 export const CarrinhoContainer = styled.div`
-    /* grid-column:; */
     grid-row-start: 2;
     border: 1px solid black;
     background-color: #6e6e6e;
@@ -104,4 +107,10 @@ export const CardCarrinho = styled.div`
 export const BotaoCarrinho = styled.button`
     margin: 10px;
     height: 2rem;
+    background-color: #326462;
+    border: 2px solid black;
+    cursor: pointer;
+    :hover {
+      background-color: #50a3a0;
+    }
 `

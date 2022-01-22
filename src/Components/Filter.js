@@ -1,6 +1,9 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import iconeFiltro from '../imgs/filter.svg';
+import iconeValor from '../imgs/paid.svg';
+import iconeBusca from '../imgs/search.svg';
 
 
 
@@ -42,20 +45,20 @@ class Filter extends React.Component {
         return (
 
             <>
-                <FiltrosH2>Filtros</FiltrosH2>
-                <InputLabel>Valor mínimo:</InputLabel>
+                <FiltrosH2><img src={iconeFiltro} alt="Ícone de Filtro"/> Filtros</FiltrosH2>
+                <InputLabel><img src={iconeValor} alt="Ícone de Cifrão"/> Valor mínimo:</InputLabel>
 
                 <Input placeholder="Valor minimo"
                     id={1}
                     type={"number"} onChange={this.valorData} />
 
-                <InputLabel>Valor máximo:</InputLabel>
+                <InputLabel><img src={iconeValor} alt="Ícone de Cifrão"/> Valor máximo:</InputLabel>
 
                 <Input placeholder="Valor maximo"
                     id={2}
                     type={"number"} onChange={this.valorData} />
 
-                <InputLabel>Busca por nome</InputLabel>
+                <InputLabel><img src={iconeBusca} alt="Ícone de Cifrão"/> Busca por nome</InputLabel>
 
                 <Input placeholder="Busca por nome"
                     id={3}
