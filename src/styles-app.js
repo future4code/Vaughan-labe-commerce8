@@ -10,9 +10,6 @@ export const CaixaPrincipal = styled.div`
 export const EstilizacaoHeader = styled.div`
     grid-column-start: 1;
     grid-column-end: 5;
-    justify-content: center;
-    align-items: center;
-    /* width: 100vw; */
     text-align: center;
     color: #303030;
     background-color: #ad3743;
@@ -55,7 +52,7 @@ export const CardProduto = styled.div`
   align-items: center;
   border: 2px solid black;
   margin: 10px;
-  background-color: #ad3743; 
+  /* background-color: #ad3743;  */
 `;
 
 export const Imagem = styled.img`
@@ -80,9 +77,7 @@ export const Botao = styled.button`
     }
 `
 // Estilização Carrinho
-
 export const CarrinhoContainer = styled.div`
-    /* grid-column:; */
     grid-row-start: 2;
     border: 1px solid black;
     background-color: #6e6e6e;
