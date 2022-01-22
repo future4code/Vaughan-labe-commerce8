@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import Filter from "./Components/Filter";
 import listaProdutos from "./data/produtos.js";
@@ -59,7 +58,7 @@ class App extends React.Component {
     }
   }
 
-}
+
 
   removerItem = (itemID) => {
     const novosProdutos = this.state.itensNoCarrinho.map((item) => {
@@ -82,8 +81,6 @@ class App extends React.Component {
       (state) => ({
         valor: valor
       }));
-
-    /* console.log("id;", id, "valor:" , valor); */
 
     if (id === "1") {
       this.setState(
@@ -112,18 +109,6 @@ class App extends React.Component {
           naoFiltrando: false,
         }));
 
-      console.log(this.state.produtosFiltrado);
-      console.log(this.state.valor);
-      console.log(this.state.naoFiltrando);
-      console.log(this.state.valorMax);
-
-      // }else{ 
-      //   this.setState(
-      //     (state) =>({
-      //      naoFiltrando: true,
-      //      valorMax: 6700090000
-      //    }));
-
     }
   };
 
@@ -131,7 +116,7 @@ class App extends React.Component {
     this.setState({
       ordem: event.target.value
     })
-  }
+  };
 
   render() {
 
