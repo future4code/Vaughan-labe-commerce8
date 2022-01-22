@@ -29,7 +29,7 @@ class Carrinho extends React.Component {
                 })}
                   </EstilizacaoCarrinhoContainer>
 
-                <p>Valor total: {this.getTotalValue()}</p>
+                <p>Valor total: $ {this.getTotalValue()}</p>
 
             </CarrinhoContainer>
         )

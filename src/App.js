@@ -38,6 +38,19 @@ class App extends React.Component {
     itensNoCarrinho: []
   };
 
+  componentDidUpdate() {
+    const itensCarrinhoEmString = JSON.stringify(this.state.itensNoCarrinho)
+    localStorage.setItem("Itens no Carrinho", itensCarrinhoEmString);
+  };
+
+  componentDidMount() {
+    const carrinhoLocalStorage = JSON.parse(localStorage.getItem("Itens no Carrinho"))
+
+    if (carrinhoLocalStorage) {
+      this.setState({ itensNoCarrinho: carrinhoLocalStorage})
+    }
+  };
+
   adicionarItem = (itemId) => {
     const itemNoCarrinho = this.state.itensNoCarrinho.find(item => itemId === item.id)
     if (itemNoCarrinho) {
