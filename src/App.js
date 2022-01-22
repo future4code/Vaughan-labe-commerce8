@@ -59,8 +59,20 @@ class App extends React.Component {
     }
   }
 
+}
 
-
+  removerItem = (itemID) => {
+    const novosProdutos = this.state.itensNoCarrinho.map((item) => {
+      if(item.id === itemID) {
+        return {
+          ...item,
+          quantidade: item.quantidade - 1
+        }
+      }
+      return item
+    }).filter((item) => item.quantidade > 0)
+    this.setState({itensNoCarrinho: novosProdutos})
+  }
 
   valorDataApp = (data) => {
     const id = data.target.id;
@@ -179,8 +191,12 @@ class App extends React.Component {
             {arrayProduto}
 
         </CardsContainer>
+        
+        <Carrinho 
+          itensNoCarrinho={this.state.itensNoCarrinho}
+          removerItem={this.removerItem}
+        />
 
-        <Carrinho itensNoCarrinho={this.state.itensNoCarrinho} />
 
       </CaixaPrincipal>
     );

@@ -17,13 +17,18 @@ class Carrinho extends React.Component {
 
     render() {
         return (
+
             <CarrinhoContainer>
-                <h3><img src={iconeCarrinho} alt="Ícone Carrinho"/>  Carrinho</h3>
+                <h3><img src={iconeCarrinho} alt="Ícone Carrinho"/> Carrinho</h3>
                 <EstilizacaoCarrinhoContainer>
-                    {this.props.itensNoCarrinho.map((produto) => {
-                        return <ProdutosCarrinho item={produto} />
-                    })}
-                </EstilizacaoCarrinhoContainer>
+                {this.props.itensNoCarrinho.map((produto) => {
+                    return <ProdutosCarrinho 
+                            item={produto}
+                            removerItem={this.props.removerItem}
+                            />
+                })}
+                  </EstilizacaoCarrinhoContainer>
+
                 <p>Valor total: {this.getTotalValue()}</p>
 
             </CarrinhoContainer>

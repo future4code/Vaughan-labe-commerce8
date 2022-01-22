@@ -14,8 +14,8 @@ class ProdutosCarrinho extends React.Component {
       <CardCarrinho>
         <p>{this.props.item.quantidade}</p>
         <p>{this.props.item.nome}</p>
-        <BotaoCarrinho><img src={iconeRemoverItem} alt="Ícone Remover do Carrinho"/></BotaoCarrinho>
-        </CardCarrinho>
+        <BotaoCarrinho onClick={() => this.props.removerItem(this.props.item.id)}><img src={iconeRemoverItem} alt="Ícone Remover do Carrinho"/></BotaoCarrinho>
+      </CardCarrinho>
   );
  }
     
