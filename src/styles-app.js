@@ -55,6 +55,7 @@ export const CardProduto = styled.div`
   align-items: center;
   border: 2px solid black;
   margin: 10px;
+  background-color: #ad3743; 
 `;
 
 export const Imagem = styled.img`
@@ -65,11 +66,18 @@ export const Imagem = styled.img`
 
 export const Paragrafo = styled.p`
   margin-bottom: 10px;
+  ;
 `;
 
 export const Botao = styled.button`
   margin-bottom: 10px;
   padding: 5px;
+  background-color: #326462;
+  border: 2px solid black;
+  cursor: pointer;
+  :hover {
+      background-color: #50a3a0;
+    }
 `
 // Estilização Carrinho
 
@@ -104,4 +112,10 @@ export const CardCarrinho = styled.div`
 export const BotaoCarrinho = styled.button`
     margin: 10px;
     height: 2rem;
+    background-color: #326462;
+    border: 2px solid black;
+    cursor: pointer;
+    :hover {
+      background-color: #50a3a0;
+    }
 `

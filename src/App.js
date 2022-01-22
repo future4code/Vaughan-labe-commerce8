@@ -4,8 +4,10 @@ import Filter from "./Components/Filter";
 import listaProdutos from "./data/produtos.js";
 import Carrinho from './Components/Carrinho';
 import { EstilizacaoHeader, CaixaPrincipal, FiltroDiv, OrdenacaoContainer, CardsContainer, CardProduto, Imagem, Paragrafo, Botao } from './styles-app';
-import iconeAdicionarCarrinho from './imgs/add-shopping-cart.svg'
-import iconeNave from './imgs/spaceship-red.png'
+import iconeAdicionarCarrinho from './imgs/add-shopping-cart.svg';
+import iconeNave from './imgs/spaceship-red.png';
+import iconeCifrao from './imgs/dollar-sign.svg';
+import iconeFoguete from './imgs/rocket.svg'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -143,8 +145,8 @@ class App extends React.Component {
           return (
             <CardProduto key={produto.id}>
               <Imagem src={produto.imagem} alt='Imagem do produto' />
-              <Paragrafo>Nome: {produto.nome}</Paragrafo>
-              <Paragrafo>Valor: {produto.valor}</Paragrafo>
+              <Paragrafo><img src={iconeFoguete} alt="Ícone de Foguete"/> {produto.nome}</Paragrafo>
+              <Paragrafo><img src={iconeCifrao} alt="Ícone de Cifrão"/> {produto.valor},00</Paragrafo>
               <Botao onClick={() => this.adicionarItem(produto.id)}><img src ={iconeAdicionarCarrinho} alt="Ícone Adicionar ao Carrinho"/></Botao>
             </CardProduto>
           );
