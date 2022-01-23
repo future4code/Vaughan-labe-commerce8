@@ -23,6 +23,6 @@ https://interplanetarium.surge.sh/
 
 
 ## Desenvolvedores
-Ana Sue Sammi;
-Gabriel Martins;
-Gabriela Hermenegildo.
+Ana Sue Sammi
+Gabriel Martins
+Gabriela Hermenegildo
