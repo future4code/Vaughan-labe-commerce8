@@ -159,7 +159,7 @@ class App extends React.Component {
             <CardProduto key={produto.id}>
               <Imagem src={produto.imagem} alt='Imagem do produto' />
               <Paragrafo><img src={iconeFoguete} alt="Ícone de Foguete"/> {produto.nome}</Paragrafo>
-              <Paragrafo><img src={iconeCifrao} alt="Ícone de Cifrão"/> {produto.valor},00</Paragrafo>
+              <Paragrafo><img src={iconeCifrao} alt="Ícone de Cifrão"/> {produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Paragrafo>
               <Botao onClick={() => this.adicionarItem(produto.id)}><img src ={iconeAdicionarCarrinho} alt="Ícone Adicionar ao Carrinho"/></Botao>
             </CardProduto>
           );
