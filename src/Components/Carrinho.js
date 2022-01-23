@@ -12,7 +12,7 @@ class Carrinho extends React.Component {
         for (let product of this.props.itensNoCarrinho) {
             totalValue += product.valor * product.quantidade
         }
-        return totalValue
+        return totalValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
     }
 
     render() {
