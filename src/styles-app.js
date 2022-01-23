@@ -36,7 +36,7 @@ export const EstilizacaoHeader = styled.div`
 // Estilização Filtro 
 export const FiltroDiv = styled.div`
   grid-row-start: 2;
-  /* height:90vh; */
+  height: 80vh;
   display: flex;
   flex-direction: column;
   margin: 10px;
