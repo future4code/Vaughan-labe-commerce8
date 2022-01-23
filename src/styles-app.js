@@ -8,17 +8,18 @@ export const CaixaPrincipal = styled.div`
 
 //Header
 export const EstilizacaoHeader = styled.div`
-    grid-column-start: 1;
-    grid-column-end: 5;
-    text-align: center;
-    color: #303030;
-    background-color: #ad3743;
-    padding: 10px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  text-align: center;
+  color: #303030;
+  background-color: #ad3743;
+  padding: 10px;
 `
 
 // Estilização Filtro 
 export const FiltroDiv = styled.div`
-    grid-row-start: 2;
+  grid-row-start: 2;
+  height:90vh;
   display: flex;
   flex-direction: column;
   margin: 10px;
