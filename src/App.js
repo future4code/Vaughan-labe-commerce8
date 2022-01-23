@@ -3,11 +3,13 @@ import { createGlobalStyle } from "styled-components";
 import Filter from "./Components/Filter";
 import listaProdutos from "./data/produtos.js";
 import Carrinho from './Components/Carrinho';
-import { EstilizacaoHeader, CaixaPrincipal, FiltroDiv, OrdenacaoContainer, CardsContainer, CardProduto, Imagem, Paragrafo, Botao } from './styles-app';
+import { EstilizacaoHeader, CaixaPrincipal, FiltroDiv, OrdenacaoContainer, 
+CardsContainer, CardProduto, Imagem, Paragrafo, Botao, Footer } from './styles-app';
 import iconeAdicionarCarrinho from './imgs/add-shopping-cart.svg';
 import iconeNave from './imgs/spaceship-red.png';
 import iconeCifrao from './imgs/dollar-sign.svg';
 import iconeFoguete from './imgs/rocket.svg'
+
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -169,7 +171,7 @@ class App extends React.Component {
       <CaixaPrincipal>
         <GlobalStyle />
         <EstilizacaoHeader>
-          <h1> <img src={iconeNave} alt="Ícone de Nave"/> Navezinhas <img src={iconeNave} alt="Ícone de Nave"/></h1>
+          <h1> <img src={iconeNave} alt="Ícone de Nave"/> Interplanetarium <img src={iconeNave} alt="Ícone de Nave"/></h1>
         </EstilizacaoHeader>
         <FiltroDiv>
           <Filter
@@ -197,6 +199,11 @@ class App extends React.Component {
           removerItem={this.removerItem}
         />
 
+        <Footer>
+          <p>Redes Espaciais</p>
+          <h3>Interplanetarium™</h3>
+          <p>Contato</p>
+        </Footer>
 
       </CaixaPrincipal>
     );
