@@ -36,7 +36,7 @@ export const EstilizacaoHeader = styled.div`
 // Estilização Filtro 
 export const FiltroDiv = styled.div`
   grid-row-start: 2;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -45,7 +45,6 @@ export const FiltroDiv = styled.div`
   background: #858585;
   color: black;
   align-items: center;
-
 `;
 
 export const Filter = styled.div`
@@ -116,6 +115,7 @@ export const CarrinhoContainer = styled.div`
     padding: 10px;
     color: black;
     text-align: center;
+    height: 100vh;
     
     h3 {
         margin: 10px;
